@@ -19,7 +19,7 @@ public:
 	CDate(int iDay, int iMonth, int iYear);
 
 	int bDateDiffrence(CDate& pcOther);
-	void vPrintDate();
+	void vPrint();
 	void vAddDays(int iDays);
 
 	void operator+  (int iAdd);
@@ -47,7 +47,7 @@ protected:
 	int iHourInSeconds();
 
 	const  int MONTHS[NUMBER_OF_MONTHS] = { 31, 28, 31,30,31,30,31,31,30,31,30,31 };
-	const  int LEAP_YEAR[NUMBER_OF_MONTHS] = { 31, 29, 31,30,31,30,31,31,30,31,30,31 };
+	const  int LEAP_YEAR[NUMBER_OF_MONTHS] = { 31, 29, 31,30,31,30,31,31,30,31,30,31 }; 
 
 	int x = 'd';
 };

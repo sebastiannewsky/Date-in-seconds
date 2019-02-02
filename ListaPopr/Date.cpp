@@ -33,7 +33,7 @@ int CDate::bDateDiffrence(CDate & pcOther)
 	}//if (b_is_correct&&pcOther.b_is_correct)
 }//bool Date::bDateDiffrence(Date & pcOther)
 
-void CDate::vPrintDate()
+void CDate::vPrint()
 {
 	if (!b_is_correct)return;
 	//cout << "DDATE: " << d_date<< endl;

@@ -5,7 +5,7 @@ class CTimeStamp: public CDate
 {
 public:
 	CTimeStamp(int iDay, int iMonth, int iYear, int iHour, int iMinute);
-	void vPrintTimeStamp();
+	void vPrint();
 	int iMinutesDiffrence(CTimeStamp& pcOther);
 	void vAddHours(int iHours);
 	void operator+  (int iAdd);

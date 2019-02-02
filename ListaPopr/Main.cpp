@@ -16,32 +16,32 @@ int main()
 	cout << (*d4 == *d5) << endl;
 	cout << (*d2 == *d5) << endl<<endl;
 
-	d1->vPrintDate();
-	d2->vPrintDate();
-	d3->vPrintDate();
-	d4->vPrintDate();
+	d1->vPrint();
+	d2->vPrint();
+	d3->vPrint();
+	d4->vPrint();
 
 	cout<<endl <<"PRZERWA"<< endl<<endl;
 
 	*d1+365;
-	d1->vPrintDate();
+	d1->vPrint();
 	cout << "ROZNICA DAT: "<<endl;
 	cout << (*d5 - *d1) << endl;
 	cout << (*d1 - *d5) << endl;
 	*d1 + 365;
-	d1->vPrintDate();
+	d1->vPrint();
 	*d1 + 365;
-	d1->vPrintDate();
+	d1->vPrint();
 	*d1 + 365;
-	d1->vPrintDate();
+	d1->vPrint();
 	*d1 + 365;
-	d1->vPrintDate();
+	d1->vPrint();
 	*d1 + 365;
 	//d1->vAddDays(365);
-	d1->vPrintDate();
+	d1->vPrint();
 	cout << (*d1 - *d5)/5 << endl;
 	*d1 - 365;
-	d1->vPrintDate();
+	d1->vPrint();
 	cout << (*d1 - *d5)/4 << endl;
 
 
@@ -53,16 +53,16 @@ int main()
 	
 	CTimeStamp* cts1 = new CTimeStamp(1, 1, 1900, 0, 0);
 	CTimeStamp* cts2 = new CTimeStamp(1, 1, 1900, 10, 0);
-	cts1->vPrintTimeStamp();
-	cts1->vPrintDate();
+	cts1->vPrint();
 
-	cts2->vPrintTimeStamp();
-	cts2->vPrintDate();
+
+	cts2->vPrint();
+
 	cout << (*cts2 - *cts1) << endl;
 
 	CTimeStamp* cts3 = new CTimeStamp(15, 7, 1945, 13, 46);
-	cts3->vPrintTimeStamp();
-	cts3->vPrintDate();
+	cts3->vPrint();
+
 
 
 	cout << "TESTTSETSETESTSET" << endl << endl << endl;

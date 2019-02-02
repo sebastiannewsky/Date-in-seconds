@@ -16,7 +16,7 @@ CTimeStamp::CTimeStamp(int iDay, int iMonth, int iYear, int iHour, int iMinute)
 }//CTimeStamp::CTimeStamp(int iDay, int iMonth, int iYear, int iHour, int iMinute)
 
 
-void CTimeStamp::vPrintTimeStamp()
+void CTimeStamp::vPrint()
 {
 	if (!b_is_correct)return;
 	
