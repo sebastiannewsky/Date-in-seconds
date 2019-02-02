@@ -99,7 +99,7 @@ bool CDate::operator<(CDate&  pcOther)
 {
 	if (b_is_correct&&pcOther.b_is_correct)
 	{
-		if (((int)(d_date/ (NUMBER_OF_HOURS * NUMBER_OF_MINUTES * NUMBER_OF_SECONDS))) <= ((int)(pcOther.d_date/ (NUMBER_OF_HOURS * NUMBER_OF_MINUTES * NUMBER_OF_SECONDS)))) return true;
+		if (iReturnDays() < pcOther.iReturnDays()) return true;
 	}//if (b_is_correct&&pcOther.b_is_correct)
 	return false;
 }//bool Date::operator<(Date & pcOther)
@@ -108,7 +108,7 @@ bool CDate::operator<=(CDate&  pcOther)
 {
 	if (b_is_correct&&pcOther.b_is_correct)
 	{
-		if (d_date / (NUMBER_OF_HOURS * NUMBER_OF_MINUTES * NUMBER_OF_SECONDS) <= pcOther.d_date/ (NUMBER_OF_HOURS * NUMBER_OF_MINUTES * NUMBER_OF_SECONDS)) return true;
+		if (iReturnDays() <= pcOther.iReturnDays()) return true;
 	}//if (b_is_correct&&pcOther.b_is_correct)
 	return false;
 }//bool Date::operator<=(Date & pcOther)
@@ -117,7 +117,7 @@ bool CDate::operator>(CDate&  pcOther)
 {
 	if (b_is_correct&&pcOther.b_is_correct)
 	{
-		if (d_date/ (NUMBER_OF_HOURS * NUMBER_OF_MINUTES * NUMBER_OF_SECONDS) > pcOther.d_date/ (NUMBER_OF_HOURS * NUMBER_OF_MINUTES * NUMBER_OF_SECONDS)) return true;
+		if (iReturnDays() > pcOther.iReturnDays()) return true;
 	}//if (b_is_correct&&pcOther.b_is_correct)
 	return false;
 }//bool Date::operator>(Date & pcOther)
@@ -126,7 +126,7 @@ bool CDate::operator>=(CDate&  pcOther)
 {
 	if (b_is_correct&&pcOther.b_is_correct)
 	{
-		if (d_date/ (NUMBER_OF_HOURS * NUMBER_OF_MINUTES * NUMBER_OF_SECONDS) >= pcOther.d_date/ (NUMBER_OF_HOURS * NUMBER_OF_MINUTES * NUMBER_OF_SECONDS)) return true;
+		if (iReturnDays() >= pcOther.iReturnDays()) return true;
 	}//if (b_is_correct&&pcOther.b_is_correct)
 	return false;
 }//bool Date::operator>=(Date & pcOther)
@@ -135,7 +135,7 @@ bool CDate::operator==(CDate&  pcOther)
 {
 	if (b_is_correct&&pcOther.b_is_correct)
 	{
-		if (((int)(d_date/ (NUMBER_OF_HOURS * NUMBER_OF_MINUTES * NUMBER_OF_SECONDS))) == ((int)(pcOther.d_date/ (NUMBER_OF_HOURS * NUMBER_OF_MINUTES * NUMBER_OF_SECONDS)))) return true;
+		if (iReturnDays() == pcOther.iReturnDays()) return true;
 	}//if (b_is_correct&&pcOther.b_is_correct)
 	return false;
 }//bool Date::operator==(Date & pcOther)
@@ -250,6 +250,20 @@ bool CDate::bIsCOrrect()
 {
 	return b_is_correct;
 }//bool CDate::bIsCOrrect()
+int CDate::iReturnDays()
+{
+	return (d_date / (NUMBER_OF_HOURS * NUMBER_OF_MINUTES * NUMBER_OF_SECONDS));
+}//int CDate::iReturnDays()
+int CDate::iDayInSeconds()
+{
+	return (NUMBER_OF_HOURS * NUMBER_OF_MINUTES * NUMBER_OF_SECONDS);
+}//int CDate::iDayInSeconds()
+int CDate::iHourInSeconds()
+{
+	return (NUMBER_OF_MINUTES*NUMBER_OF_SECONDS);
+}//int CDate::iHourInSeconds()
+
+
 
 
 

@@ -3,11 +3,10 @@
 #define DEFAULT_MONTH 1
 #define DEFAULT_YEAR 1900
 #define NUMBER_OF_MONTHS 12
-#define LEAP_YEARS 5
+#define LEAP_YEARS 4
 #define NUMBER_OF_HOURS 24
 #define NUMBER_OF_MINUTES 60
 #define NUMBER_OF_SECONDS 60
-//#define DAY_IN_SECONDS  86400     //24*60*60
 #define MINUTE_IN_SECONDS 60
 #define HOURS_IN_SECONDS 3600 //60*60
 #define DEFAULT_HOUR 0
@@ -43,6 +42,9 @@ protected:
 	int iSumOfDays();
 	int iFirstLeapYear();
 	bool bIsCOrrect();
+	int iReturnDays();
+	int iDayInSeconds();
+	int iHourInSeconds();
 
 	const  int MONTHS[NUMBER_OF_MONTHS] = { 31, 28, 31,30,31,30,31,31,30,31,30,31 };
 	const  int LEAP_YEAR[NUMBER_OF_MONTHS] = { 31, 29, 31,30,31,30,31,31,30,31,30,31 };

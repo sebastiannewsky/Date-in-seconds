@@ -135,9 +135,7 @@ bool CTimeStamp::operator==(CTimeStamp & pcOther)
 {
 	if (b_is_correct&&pcOther.b_is_correct)
 	{
-		cout << "TUTAJ" << endl;
-		cout << d_date << endl;
-		cout << pcOther.d_date<<endl;
+
 		if (d_date == pcOther.d_date) return true;
 	}//if (b_is_correct&&pcOther.b_is_correct)
 	return false;
