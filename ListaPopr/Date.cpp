@@ -25,7 +25,7 @@ int CDate::bDateDiffrence(CDate & pcOther)
 {
 	if (b_is_correct&&pcOther.b_is_correct)
 	{
-		int i_value = ((d_date - pcOther.d_date) / (NUMBER_OF_HOURS * NUMBER_OF_MINUTES * NUMBER_OF_SECONDS));
+		int i_value = ((d_date - pcOther.d_date) / iDayInSeconds());
 		
 		if (i_value < 0) i_value=i_value*(-1);
 		
@@ -73,7 +73,7 @@ void CDate::vPrintDate()
 void CDate::vAddDays(int iDays)
 {
 	if (!b_is_correct) return;
-	d_date = d_date + (iDays*(NUMBER_OF_HOURS * NUMBER_OF_MINUTES * NUMBER_OF_SECONDS));
+	d_date = d_date + (iDays*iDayInSeconds());
 	if (d_date < 0) b_is_correct = false;
 }//void Date::vAddDays(int iDays)
 void CDate::operator+(int iAdd)
@@ -184,7 +184,7 @@ void CDate::vSetDate(int iDay, int iMonth, int iYear)
 
 
 
-	d_date = (iYear - DEFAULT_YEAR) * iSumOfDays()*(NUMBER_OF_HOURS * NUMBER_OF_MINUTES * NUMBER_OF_SECONDS);
+	d_date = (iYear - DEFAULT_YEAR) * iSumOfDays()*iDayInSeconds();
 	if (d_date < 0)
 	{
 		b_is_correct = false;
@@ -192,12 +192,12 @@ void CDate::vSetDate(int iDay, int iMonth, int iYear)
 	}//if (d_date < 0)
 	for (int i = 1; i < iMonth; i++)
 	{
-		d_date = d_date + MONTHS[i - 1] * (NUMBER_OF_HOURS * NUMBER_OF_MINUTES * NUMBER_OF_SECONDS);
+		d_date = d_date + MONTHS[i - 1] * iDayInSeconds();
 	}//for (int i = 1; i < iMonth; i++)
 
-	d_date = d_date + (iDay - DEFAULT_DAY) * (NUMBER_OF_HOURS * NUMBER_OF_MINUTES * NUMBER_OF_SECONDS);
+	d_date = d_date + (iDay - DEFAULT_DAY) * iDayInSeconds();
 
-	d_date = d_date + i_leaps * (NUMBER_OF_HOURS * NUMBER_OF_MINUTES * NUMBER_OF_SECONDS);
+	d_date = d_date + i_leaps * iDayInSeconds();
 	if (d_date < 0)
 	{
 		b_is_correct = false;

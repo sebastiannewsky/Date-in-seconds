@@ -72,7 +72,7 @@ int main()
 	CDate * dx2 = &(*ts2);
 
 	cout<<"DATE" << (*dx == (*dx2))<<endl;
-	cout<<"TIMESTAMP" << (*ts == (*ts2));
+	cout<<"TIMESTAMP" << (*ts == (*ts2))<<endl;
 
 	system("pause");
 

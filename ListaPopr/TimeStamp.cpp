@@ -22,7 +22,7 @@ void CTimeStamp::vPrintTimeStamp()
 	
 	int i_time = d_date;
 	
-	int i_years = (i_time / (NUMBER_OF_HOURS * NUMBER_OF_MINUTES * NUMBER_OF_SECONDS)) / iSumOfDays();
+	int i_years = (i_time / iDayInSeconds()) / iSumOfDays();
 	
 	int i_leaps = 0;
 	if (i_years > LEAP_YEARS)
@@ -33,26 +33,26 @@ void CTimeStamp::vPrintTimeStamp()
 	int i_cheat_years = i_leaps / iSumOfDays();
 	i_years = i_years - i_cheat_years;
 	if (i_leaps != 0)
-		i_time = i_time - i_leaps* (NUMBER_OF_HOURS * NUMBER_OF_MINUTES * NUMBER_OF_SECONDS);
+		i_time = i_time - i_leaps* iDayInSeconds();
 	
-	i_time = i_time - i_years * iSumOfDays()*(NUMBER_OF_HOURS * NUMBER_OF_MINUTES * NUMBER_OF_SECONDS);
+	i_time = i_time - i_years * iSumOfDays()*iDayInSeconds();
 	
 	int i_month = 0;
 	int i_helper = i_time;
-	i_time = i_time - MONTHS[i_month]* (NUMBER_OF_HOURS * NUMBER_OF_MINUTES * NUMBER_OF_SECONDS);
+	i_time = i_time - MONTHS[i_month]* iDayInSeconds();
 	while (i_time > 0)
 	{
 		i_month++;
 		i_helper = i_time;
-		i_time = i_time - MONTHS[i_month]* (NUMBER_OF_HOURS * NUMBER_OF_MINUTES * NUMBER_OF_SECONDS);
+		i_time = i_time - MONTHS[i_month]* iDayInSeconds();
 	}//while (i_days > 0)
 	i_time = i_helper;
-	int i_days = i_time/ (NUMBER_OF_HOURS * NUMBER_OF_MINUTES * NUMBER_OF_SECONDS);;
+	int i_days = i_time/ iDayInSeconds();;
 	//i_days = i_days + DEFAULT_DAY;
-	i_time = i_time - i_days * (NUMBER_OF_HOURS * NUMBER_OF_MINUTES * NUMBER_OF_SECONDS);
-	int i_hours = i_time /(HOURS_IN_SECONDS);
+	i_time = i_time - i_days * iDayInSeconds();
+	int i_hours = i_time /(iHourInSeconds());
 
-	i_time = i_time - i_hours*HOURS_IN_SECONDS;
+	i_time = i_time - i_hours* iHourInSeconds();
 	
 	int i_minute = i_time/MINUTE_IN_SECONDS; 
 	cout << "(" << i_hours + DEFAULT_HOUR << ", " << i_minute + DEFAULT_MINUTE << ")";
@@ -75,7 +75,7 @@ int CTimeStamp::iMinutesDiffrence(CTimeStamp & pcOther)
 void CTimeStamp::vAddHours(int iHours)
 {
 	if (!b_is_correct) return;
-	d_date = d_date + (iHours* HOURS_IN_SECONDS);
+	d_date = d_date + (iHours* iHourInSeconds());
 	if (d_date < 0) b_is_correct = false;
 }//void CTimeStamp::vAddHours(int iHours)
 void CTimeStamp::operator+(int iAdd)
@@ -165,7 +165,7 @@ void CTimeStamp::vSetDate(int iDay, int iMonth, int iYear, int iHour, int iMinut
 {
 	CDate::vSetDate(iDay, iMonth, iYear);
 	if (!b_is_correct) return;
-	d_date = d_date + iHour * HOURS_IN_SECONDS;
+	d_date = d_date + iHour * iHourInSeconds();
 	d_date = d_date + iMinute * MINUTE_IN_SECONDS;
 	if (d_date < 0) b_is_correct = false;
 

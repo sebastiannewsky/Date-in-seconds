@@ -8,7 +8,7 @@
 #define NUMBER_OF_MINUTES 60
 #define NUMBER_OF_SECONDS 60
 #define MINUTE_IN_SECONDS 60
-#define HOURS_IN_SECONDS 3600 //60*60
+
 #define DEFAULT_HOUR 0
 #define DEFAULT_MINUTE 0
 class CDate
